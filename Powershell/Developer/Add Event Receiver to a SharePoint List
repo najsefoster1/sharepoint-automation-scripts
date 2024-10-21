@@ -1,0 +1,12 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$ListName = "CustomList"
+$ReceiverName = "ItemAddedReceiver"
+$ReceiverUrl = "https://yourserviceurl.com/receiver.svc"
+$EventType = "ItemAdded"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Add the event receiver
+Add-PnPEventReceiver -List $ListName -Name $ReceiverName -Url $ReceiverUrl -EventReceiverType $EventType
