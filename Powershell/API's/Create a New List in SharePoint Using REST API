@@ -1,0 +1,19 @@
+#REST API endpoint for creating a list
+$apiUrl = "$siteUrl/_api/web/lists"
+
+#Payload to create a new list
+$body = @{
+    __metadata = @{ type = "SP.List" }
+    Title      = "New Custom List"
+    BaseTemplate = 100
+} | ConvertTo-Json
+
+#Send the POST request
+$response = Invoke-RestMethod -Uri $apiUrl -Method Post -Headers @{
+    Authorization = "Bearer $accessToken"
+    Accept        = "application/json;odata=verbose"
+    Content-Type  = "application/json;odata=verbose"
+} -Body $body
+
+#Output the response
+$response
