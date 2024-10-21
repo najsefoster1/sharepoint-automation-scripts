@@ -1,0 +1,7 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$Key = "customAppSetting"
+$Value = "Value123"
+
+#Add a web.config modification
+Add-WebConfigKey -WebApplication $SiteURL -Key $Key -Value $Value
