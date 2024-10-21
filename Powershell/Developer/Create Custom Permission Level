@@ -1,0 +1,10 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$PermissionLevelName = "CustomDeveloperAccess"
+$Permissions = "ViewListItems, AddListItems, EditListItems"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Create custom permission level
+Add-PnPRoleDefinition -RoleName $PermissionLevelName -BasePermissions $Permissions
