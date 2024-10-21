@@ -1,0 +1,19 @@
+#URL of the target list
+$listUrl = "$siteUrl/_api/web/lists/getbytitle('Your List Title')/items"
+
+#JSON body for the new list item
+$body = @{
+    __metadata = @{ type = "SP.Data.Your_x0020_List_x0020_TitleListItem" }
+    Title      = "New Item"
+    SomeField  = "Value"
+} | ConvertTo-Json
+
+#Send the POST request
+$response = Invoke-RestMethod -Uri $listUrl -Method Post -Headers @{
+    Authorization = "Bearer $accessToken"
+    Accept        = "application/json;odata=verbose"
+    Content-Type  = "application/json;odata=verbose"
+} -Body $body
+
+#Output the response
+$response
