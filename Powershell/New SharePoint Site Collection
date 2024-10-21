@@ -1,0 +1,12 @@
+
+#Connect to SharePoint Online Admin Center
+$AdminURL = "https://InsertSharePointSite-admin.sharepoint.com"
+Connect-SPOService -Url $AdminURL
+
+#Variables
+$SiteURL = "https://InsertSharePointSite.sharepoint.com/sites/NewSite"
+$Owner = "user@yourtenant.com"
+$Template = "STS#0" # Blank site template
+
+#Create a new site collection
+New-SPOSite -Url $SiteURL -Owner $Owner -StorageQuota 1024 -Template $Template
