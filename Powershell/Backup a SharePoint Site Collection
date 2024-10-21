@@ -1,0 +1,6 @@
+#Set the site collection and backup file path
+$SiteURL = "https://yourserver/sites/YourSiteCollection"
+$BackupFile = "C:\Backup\YourSiteCollectionBackup.bak"
+
+#Backup the site collection
+Backup-SPSite -Identity $SiteURL -Path $BackupFile -Force
