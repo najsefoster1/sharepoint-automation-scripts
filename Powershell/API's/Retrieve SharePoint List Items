@@ -1,0 +1,8 @@
+#REST API endpoint to retrieve items from a list
+$listUrl = "$siteUrl/_api/web/lists/getbytitle('Your List Title')/items"
+
+#Send the GET request
+$response = Invoke-RestMethod -Uri $listUrl -Headers @{ Authorization = "Bearer $accessToken" } -Method Get
+
+#Display the items
+$response.value | ForEach-Object { $_.Title }
