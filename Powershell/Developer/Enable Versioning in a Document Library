@@ -1,0 +1,9 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$LibraryName = "Documents"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Enable versioning
+Set-PnPList -Identity $LibraryName -EnableVersioning $true
