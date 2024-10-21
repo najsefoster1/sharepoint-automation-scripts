@@ -1,0 +1,20 @@
+#Item ID to update
+$itemId = 1
+$listUrl = "$siteUrl/_api/web/lists/getbytitle('Your List Title')/items($itemId)"
+
+#JSON body for the update
+$body = @{
+    __metadata = @{ type = "SP.Data.Your_x0020_List_x0020_TitleListItem" }
+    Title      = "Updated Item"
+} | ConvertTo-Json
+
+#Send the POST request
+$response = Invoke-RestMethod -Uri $listUrl -Method Post -Headers @{
+    Authorization = "Bearer $accessToken"
+    Accept        = "application/json;odata=verbose"
+    "X-HTTP-Method" = "MERGE"
+    "If-Match" = "*"
+} -Body $body
+
+#Output the response
+$response
