@@ -1,0 +1,9 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$PageUrl = "/sites/yoursite/SitePages/Home.aspx"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Get all web parts from the page
+Get-PnPWebPart -ServerRelativePageUrl $PageUrl
