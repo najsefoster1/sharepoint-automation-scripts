@@ -1,0 +1,17 @@
+#Replace with your site URL, tenant, and client ID/secret
+$siteUrl = "https://yourtenant.sharepoint.com/sites/yoursite"
+$tenantId = "your-tenant-id"
+$clientId = "your-client-id"
+$clientSecret = "your-client-secret"
+
+#Get the Access Token
+$authUrl = "https://accounts.accesscontrol.windows.net/$tenantId/tokens/OAuth/2"
+$body = @{
+    grant_type    = "client_credentials"
+    client_id     = "$clientId@your-tenant-id"
+    client_secret = $clientSecret
+    resource      = "00000003-0000-0ff1-ce00-000000000000/$($siteUrl.Split('/')[2])@your-tenant-id"
+}
+
+$response = Invoke-RestMethod -Method Post -Uri $authUrl -ContentType "application/x-www-form-urlencoded" -Body $body
+$accessToken = $response.access_token
