@@ -1,0 +1,10 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$LibraryName = "Documents"
+$FilePath = "C:\path\to\yourfile.txt"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Upload the file
+Add-PnPFile -Path $FilePath -Folder $LibraryName
