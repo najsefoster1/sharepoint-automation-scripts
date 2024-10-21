@@ -1,0 +1,6 @@
+#Set the URL of the site collection and the backup file location
+$SiteURL = "https://yourserver/sites/RestoredSiteCollection"
+$BackupFile = "C:\Backup\YourSiteCollectionBackup.bak"
+
+#Restore the site collection
+Restore-SPSite -Identity $SiteURL -Path $BackupFile -Force
