@@ -1,0 +1,9 @@
+#Connect to SharePoint
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Export permissions to CSV
+$permissions = Get-PnPGroup | ForEach-Object {
+    Get-PnPGroupMembers -Identity $_
+}
+$permissions | Export-Csv -Path "C:\SharePointPermissions.csv" -NoTypeInformation
