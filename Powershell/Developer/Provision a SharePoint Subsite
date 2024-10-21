@@ -1,0 +1,11 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$SubsiteURL = "https://yourtenant.sharepoint.com/sites/yoursite/subsite"
+$SubsiteTitle = "New Subsite"
+$Template = "STS#0"  # Use appropriate template ID
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Create a new subsite
+New-PnPWeb -Title $SubsiteTitle -Url $SubsiteURL -Template $Template -Locale 1033
