@@ -1,0 +1,9 @@
+#Variables
+$SiteURL = "https://yourtenant-admin.sharepoint.com"
+$SiteCollectionURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+
+#Connect to SharePoint Online
+Connect-SPOService -Url $SiteURL
+
+#Get storage quota information
+Get-SPOSite -Identity $SiteCollectionURL | Select StorageQuota, StorageUsageCurrent
