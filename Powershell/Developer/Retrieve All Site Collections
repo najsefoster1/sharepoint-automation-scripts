@@ -1,0 +1,6 @@
+#Connect to SharePoint Online Admin
+$AdminURL = "https://yourtenant-admin.sharepoint.com"
+Connect-SPOService -Url $AdminURL
+
+#Get all site collections
+Get-SPOSite
