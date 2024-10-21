@@ -1,0 +1,11 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$User = "user@yourtenant.com"
+$PermissionLevel = "Full Control"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Grant permissions
+Add-PnPUserToGroup -LoginName $User -Group "Site Owners"
+Set-PnPWebPermission -User $User -AddRole $PermissionLevel
