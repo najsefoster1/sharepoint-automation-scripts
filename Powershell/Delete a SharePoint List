@@ -1,0 +1,9 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$ListName = "ListToDelete"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Delete the list
+Remove-PnPList -Identity $ListName -Force
