@@ -1,0 +1,10 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$ListName = "CustomList"
+$ContentTypeName = "CustomContentType"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Add the content type to the list
+Add-PnPContentTypeToList -List $ListName -ContentType $ContentTypeName
