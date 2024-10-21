@@ -1,0 +1,9 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$AppFilePath = "C:\Addins\CustomApp.app"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Deploy the app
+Add-PnPApp -Path $AppFilePath -Scope Site
