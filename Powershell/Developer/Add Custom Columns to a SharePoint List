@@ -1,0 +1,11 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$ListName = "CustomList"
+$FieldName = "NewCustomColumn"
+$FieldType = "Text"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Add a new custom column
+Add-PnPField -List $ListName -DisplayName $FieldName -InternalName $FieldName -Type $FieldType
