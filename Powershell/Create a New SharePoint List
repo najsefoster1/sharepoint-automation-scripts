@@ -1,0 +1,10 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$ListName = "New List"
+$ListTemplate = "Custom"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Create a new list
+New-PnPList -Title $ListName -Template $ListTemplate -OnQuickLaunch
