@@ -1,0 +1,11 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Get all lists
+$Lists = Get-PnPList
+
+#Display list information
+$Lists | Select Title, ItemCount, LastItemModifiedDate
