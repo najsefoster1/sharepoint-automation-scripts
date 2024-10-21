@@ -1,0 +1,13 @@
+#Item ID to delete
+$itemId = 1
+$listUrl = "$siteUrl/_api/web/lists/getbytitle('Your List Title')/items($itemId)"
+
+#Send the DELETE request
+$response = Invoke-RestMethod -Uri $listUrl -Method Post -Headers @{
+    Authorization = "Bearer $accessToken"
+    "X-HTTP-Method" = "DELETE"
+    "If-Match" = "*"
+}
+
+#Output the response
+$response
