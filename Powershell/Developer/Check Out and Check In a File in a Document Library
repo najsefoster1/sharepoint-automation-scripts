@@ -1,0 +1,15 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$LibraryName = "Documents"
+$FilePath = "/sites/yoursite/Documents/MyFile.docx"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Check out the file
+Set-PnPFileCheckedOut -Url $FilePath
+
+#Perform some changes here (manually or through script)
+
+#Check in the file with a comment
+Set-PnPFileCheckedIn -Url $FilePath -CheckinType MajorCheckIn -Comment "Updated the file content"
