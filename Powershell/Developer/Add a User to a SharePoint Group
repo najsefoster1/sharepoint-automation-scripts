@@ -1,0 +1,10 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$GroupName = "Developers"
+$UserEmail = "user@domain.com"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Add user to the group
+Add-PnPUserToGroup -LoginName $UserEmail -Group $GroupName
