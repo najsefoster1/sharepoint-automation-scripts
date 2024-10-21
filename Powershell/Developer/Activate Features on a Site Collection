@@ -1,0 +1,9 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$FeatureID = "your-feature-id-here" # Feature ID (GUID)
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Activate the feature
+Enable-PnPFeature -Identity $FeatureID -Scope Site
