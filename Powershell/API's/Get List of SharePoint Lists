@@ -1,0 +1,8 @@
+#REST API endpoint for lists
+$apiUrl = "$siteUrl/_api/web/lists"
+
+#Send the REST request
+$response = Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization = "Bearer $accessToken"} -Method Get
+
+#Display the list titles
+$response.value | ForEach-Object { $_.Title }
