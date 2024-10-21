@@ -1,0 +1,9 @@
+#Variables
+$SiteURL = "https://yourtenant.sharepoint.com/sites/yoursite"
+$WSPFilePath = "C:\Solutions\CustomSolution.wsp"
+
+#Connect to SharePoint Online
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+
+#Upload and activate the WSP file
+Add-PnPSolution -Path $WSPFilePath -Scope Site -Activate
